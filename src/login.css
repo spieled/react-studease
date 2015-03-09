@@ -63,7 +63,9 @@ body {
     height: 30px;
     font-weight: bold;
     font-size: 18px;
-    color: whitesmoke;
+    box-shadow: 2px 2px 2px #82868F;
     background-color: #5b74a8;
-    border: 1px solid #1a356e;
+    border: 1px solid rgb(43, 90, 170);
+    color: whitesmoke;
+
 }
