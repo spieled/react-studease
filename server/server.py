@@ -28,5 +28,16 @@ def comments_handler():
 
     return Response(json.dumps(comments), mimetype='application/json', headers={'Cache-Control': 'no-cache', 'Access-Control-Allow-Origin': '*'})
 
+@app.route('/login.json', methods=['GET', 'POST'])
+def login_handler():
+    username = request.args.get('username', '', type=str)
+    password = request.args.get('password', '', type=str)
+
+    print('username:', username, ';password:', password)
+    if username == 'root' and password == 'root':
+        return Response(json.dumps({'success': True}), mimetype='application/json', headers={'Cache-Control': 'no-cache', 'Access-Control-Allow-Origin': '*'})
+    return Response(json.dumps({'success': False, 'errorTitle': "用户名或密码错误", 'errorDetail': "用户名或密码错误",'suggest': "你可以这样做或者这样做"}), mimetype='application/json', headers={'Cache-Control': 'no-cache', 'Access-Control-Allow-Origin': '*'})
+
+
 if __name__ == '__main__':
-    app.run(port=3000)
+    app.run(port=3000, debug=True)
